@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#taser-ui {
+    position: absolute;
+    bottom: 2.5vh;
+    right: 2.5vh;
+    background: linear-gradient(135deg, rgba(30, 30, 30, 0.85) 0%, rgba(20, 20, 20, 0.95) 100%);
+    border-radius: 1vh;
+    box-shadow: 0 0.5vh 1.5vh rgba(0, 0, 0, 0.3);
+    color: white;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.taser-container {
+    display: flex;
+    align-items: center;
+    padding: 1.2vh;
+    gap: 1.5vh;
+}
+
+.taser-icon {
+    position: relative;
+}
+
+.icon-wrapper {
+    position: relative;
+    width: 6vh;
+    height: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    padding: 0.8vh;
+}
+
+.taser-icon img {
+    width: 3.8vh;
+    height: 3.8vh;
+    object-fit: contain;
+    filter: drop-shadow(0 0 0.3vh rgba(255, 255, 255, 0.5));
+    z-index: 2;
+}
+
+.electric-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 0, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: 1;
+    opacity: 0;
+}
+
+.taser-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.3vh;
+}
+
+.info-label {
+    font-size: 1.1vh;
+    text-transform: uppercase;
+    letter-spacing: 0.1vh;
+    opacity: 0.6;
+    font-weight: 600;
+    color: #ffcc00;
+    margin-bottom: -0.2vh;
+}
+
+.cartridge-current {
+    font-size: 2.8vh;
+    font-weight: 600;
+    display: flex;
+    align-items: baseline;
+}
+
+.small-text {
+    font-size: 1.1vh;
+    opacity: 0.6;
+    margin-left: 0.5vh;
+    text-transform: uppercase;
+    letter-spacing: 0.05vh;
+}
+
+.cartridge-inventory {
+    font-size: 1.3vh;
+    opacity: 0.8;
+    display: flex;
+    align-items: baseline;
+}
+
+.reload-hint {
+    font-size: 1vh;
+    opacity: 0;
+    color: #ffcc00;
+    margin-top: 0.2vh;
+    letter-spacing: 0.05vh;
+    transition: all 0.3s ease;
+}
+
+.show-reload-hint .reload-hint {
+    opacity: 0.8;
+}
+
+/* Animation beim Schießen */
+@keyframes shot-pulse {
+    0% { transform: scale(1); }
+    10% { transform: scale(1.05); }
+    20% { transform: scale(1); }
+}
+
+.shot-animation {
+    animation: shot-pulse 0.5s ease;
+}
+
+@keyframes electric-pulse {
+    0% { opacity: 0; transform: scale(0.8); }
+    50% { opacity: 0.7; transform: scale(1.1); }
+    100% { opacity: 0; transform: scale(1); }
+}
+
+.electric-pulse .electric-effect {
+    animation: electric-pulse 0.5s ease;
+}
+
+/* Farbänderung bei niedriger Munition */
+.low-ammo {
+    color: #ffcc00;
+    text-shadow: 0 0 0.5vh rgba(255, 204, 0, 0.3);
+}
+
+/* Farbänderung bei keiner Munition */
+.no-ammo {
+    color: #ff3333;
+    text-shadow: 0 0 0.5vh rgba(255, 51, 51, 0.3);
+}
+
+/* Responsive Design für verschiedene Bildschirmgrößen */
+@media (max-height: 720px) {
+    #taser-ui {
+        transform: scale(0.85);
+        transform-origin: bottom right;
+    }
+}
+
+@media (max-height: 600px) {
+    #taser-ui {
+        transform: scale(0.75);
+        transform-origin: bottom right;
+    }
+}

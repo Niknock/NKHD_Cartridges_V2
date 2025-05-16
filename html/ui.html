@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taser Cartridges UI</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="taser-ui" class="hidden">
+        <div class="taser-container">
+            <div class="taser-icon">
+                <div class="icon-wrapper">
+                    <img src="img/taser.png" alt="Taser">
+                    <div class="electric-effect"></div>
+                </div>
+            </div>
+            <div class="taser-info">
+                <div class="info-label">TASER</div>
+                <div class="cartridge-current">
+                    <span id="current-shots">0</span>/<span id="max-shots">0</span> <span class="small-text">SHOTS</span>
+                </div>
+                <div class="cartridge-inventory">
+                    <span id="available-cartridges">0</span> <span class="small-text">CARTRIDGES AVAILABLE</span>
+                </div>
+                <div class="reload-hint">PRESS [R] TO RELOAD</div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
